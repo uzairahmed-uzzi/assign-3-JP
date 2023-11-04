@@ -1,0 +1,10 @@
+body{
+  background-image: linear-gradient( rgba(0,0,0,0.2) , rgba(0,0,0,0.6)) ;
+  background-size: 100%;
+  background-repeat: repeat;
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  
+   /* background-color: ; */
+}
