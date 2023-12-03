@@ -1,11 +1,11 @@
 .card-container{
     width: 100vw;
     height: 100vh;
-    display: flex;
+    /* display: flex;
     justify-content: center;
     gap: 10px;
     row-gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
     background-color: transparent;
   }
   .nav-bar{

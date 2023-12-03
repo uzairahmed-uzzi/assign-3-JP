@@ -1,38 +1,29 @@
 import * as React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { Box, Button, CardActionArea } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 export default function ActionAreaCard(props) {
+  const { product } = props;
   const navigate = useNavigate();
   return (
-    <Card sx={{ maxWidth: 345, boxShadow: "2px 2px 5px black",height:'450px',padding:'0px' }}>
-      <CardActionArea
-        sx={{ height: "100%",width:'100%', borderBlockEnd: "1px solid black" }}
-      >
-        <CardMedia
-          component="img"
-          // height="140"
-          image={props.image}
-          alt="green iguana"
-          sx={{ height: "35%", borderBlockEnd: "1px solid black" }}
-        />
-        <CardContent sx={{ height: "40%", borderBlockEnd: "1px solid black" }}>
-          <Typography gutterBottom variant="h5" component="div" sx={{height:'20%',overflow:'hidden'}}>
-            {props.title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{height:'68%',width:'100%',overflow:'hidden',textOverflow:'----'}} >
-            {props.description}
-          </Typography>
-          <Typography variant="p">Only for: Rs.{props.price}</Typography>
-        </CardContent>
-        <Box sx={{display:'flex',justifyContent:'space-between',alignContent:'center',width:'100%',height:'10%'}}>
-          <Button variant="button" onClick={()=>navigate(`/product-details/${props.id}`)} >Details</Button>
-          <Button variant="button">Buy</Button>
-        </Box>
-      </CardActionArea>
-    </Card>
+    <div key={product.id} className="group relative hover:shadow-lg hover:shadow-black transition-all hover:translate-y-1 hover:cursor-pointer" onClick={() => navigate(`/product-details/${product.id}`)} >
+              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                <img
+                  src={product.thumbnail}
+                  alt={product.title}
+                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                />
+              </div>
+              <div className="mt-4 flex justify-between">
+                <div>
+                  <h3 className="text-sm text-gray-700">
+                    <a href={product.href}>
+                      <span aria-hidden="true" className="absolute inset-0" />
+                      {product.title}
+                    </a>
+                  </h3>
+                  {/* <p className="mt-1 text-sm text-gray-500">{product.color}</p> */}
+                </div>
+                <p className="text-sm font-medium text-gray-900">{product.price}</p>
+              </div>
+            </div>
   );
 }
